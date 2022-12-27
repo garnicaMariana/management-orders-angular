@@ -1,0 +1,31 @@
+<div class="row">
+    <div class="d-flex justify-content-center">
+        <h4><b>Update order</b></h4>
+    </div>
+</div>
+    
+
+<div class="row m-5 d-flex justify-content-center">
+    <div class="col-6">
+
+        <form (ngSubmit)="onSubmit()">
+                <div class="form-group mt-1">
+                    <label for="idCustomer">Customer number</label>
+                    <input type="number"  class="form-control" id="customer" name="customer" [(ngModel)]="customer" readonly="readonly">
+                
+                </div>
+            
+                <div class="form-group mt-1">
+                    <label for="channel">Channel</label>
+                    <input type="text" class="form-control" id="channel" name="channel" [(ngModel)]="channel">
+                </div>
+            
+                <div class="form-group mt-1">
+                    <label for="subsidiary">Subsidiary</label>
+                    <input type="text" class="form-control" id="subsidiary" name="subsidiary" [(ngModel)]="subsidiary">
+                </div>
+            
+                <button type="submit" class="btn btn-success mt-5 mb-2 ml-2">Save</button>
+        </form>
+    </div>
+</div>

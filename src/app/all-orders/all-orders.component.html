@@ -1,0 +1,66 @@
+<div class="row mb-5 mt-5">
+
+
+  <div class="row">
+    <div class="col-4">
+      <mat-form-field appearance="fill">
+        <mat-label> Range date </mat-label>
+          <mat-date-range-input [rangePicker]="picker">
+            <input matStartDate placeholder="Start date" (dateChange)="startDatePicker.next($event)">
+            <input matEndDate placeholder="End date"  (dateChange)="endDatePicker.next($event)">
+          </mat-date-range-input>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-date-range-picker #picker></mat-date-range-picker>
+      </mat-form-field>
+    </div>
+
+    <div class="col-6">
+      <div class="col-10 row">
+        <div class="col-4 d-flex justify-content-end mt-2">
+            Load data file
+        </div>
+        <div class="col-8">
+          <app-load-data></app-load-data>
+        </div>
+    
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="card">
+  <div class="card-body">
+    <table class="table" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Customer</th>
+          <th scope="col">Channel</th>
+          <th scope="col">Subsidiary</th>
+          <th scope="col">Transaction</th>
+          <th scope="col">Actions</th>
+   
+        </tr>
+      </thead>
+  
+      <tbody>
+        <tr *ngFor="let order of orders">
+          
+            <td>{{ order.id }}</td>
+            <td>{{ order.customer.numCustomer }}</td>
+            <td>{{ order.channel.name }}</td>
+            <td>{{ order.subsidiary.name }}</td>
+            <td>{{ order.transaction }}</td>
+
+  
+            <td>
+              <button class="btn btn-info m-1" (click)="updateOrder(order.id)"> Update </button>
+              <button class="btn btn-danger m-1" (click)="deleteOrder(order.id)"> Delete </button>
+            </td>
+        </tr>
+          
+      </tbody>
+    </table>
+  </div>
+</div>
